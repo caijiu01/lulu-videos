@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水豚噜噜 - 游泳戏水中</title>
+    <link rel="icon" type="image/png" href="https://ve-template-0920.oss-cn-shanghai.aliyuncs.com/uploads/1770099640731_o62yl0ize6.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E0F7FA 0%, #80DEEA 50%, #26C6DA 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            padding: 20px;
+        }
+        .container { max-width: 500px; width: 100%; text-align: center; }
+        .title { font-size: 1.8rem; color: #00838F; margin-bottom: 8px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .subtitle { font-size: 1rem; color: #0097A7; margin-bottom: 24px; }
+        .video-wrapper {
+            position: relative; background: white; border-radius: 20px; padding: 12px;
+            box-shadow: 0 10px 40px rgba(0, 131, 143, 0.2); margin-bottom: 16px;
+        }
+        .video-wrapper::before {
+            content: '🏊'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            font-size: 2rem; background: white; padding: 0 10px; border-radius: 50%;
+        }
+        video { width: 100%; border-radius: 12px; display: block; }
+        .audio-control {
+            background: rgba(255,255,255,0.9); border-radius: 15px; padding: 12px 20px;
+            margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .audio-control span { color: #00838F; font-size: 0.9rem; }
+        .audio-btn {
+            background: linear-gradient(135deg, #4DD0E1, #26C6DA); color: white; border: none;
+            border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(77, 208, 225, 0.3);
+        }
+        .audio-btn:hover { transform: scale(1.1); }
+        .audio-btn.playing { background: linear-gradient(135deg, #26C6DA, #00ACC1); }
+        .voice-text {
+            background: rgba(255,255,255,0.7); padding: 12px 20px; border-radius: 12px;
+            margin-bottom: 16px; font-size: 0.95rem; color: #00838F; font-style: italic; line-height: 1.6;
+        }
+        .voice-text::before, .voice-text::after { content: '"'; font-size: 1.5rem; color: #4DD0E1; }
+        .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .btn {
+            padding: 12px 24px; border: none; border-radius: 25px; font-size: 1rem; cursor: pointer;
+            transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #4DD0E1, #26C6DA); color: white;
+            box-shadow: 0 4px 15px rgba(77, 208, 225, 0.4);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(77, 208, 225, 0.5); }
+        .btn-secondary { background: white; color: #00838F; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .footer { font-size: 0.85rem; color: #0097A7; opacity: 0.8; }
+        .share-tip { background: rgba(255,255,255,0.7); padding: 12px 20px; border-radius: 12px; margin-bottom: 16px; font-size: 0.9rem; color: #00838F; }
+        .scene-tag { display: inline-block; background: linear-gradient(135deg, #B2EBF2, #4DD0E1); color: #00838F; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; margin-bottom: 16px; }
+        @media (max-width: 480px) { .title { font-size: 1.5rem; } .btn { padding: 10px 20px; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">水豚噜噜</h1>
+        <span class="scene-tag">🏊 游泳戏水中</span>
+        <p class="subtitle">夏日清凉好时光 💙</p>
+        <div class="video-wrapper">
+            <video id="mainVideo" autoplay loop muted playsinline>
+                <source src="https://v16-cc.capcut.com/48ea677eae7467e3987f0704372a4d5d/698ad6c5/video/tos/alisg/tos-alisg-ve-14178-sg/o8uwIQEDYHfBfiQQnpZB2HbEBEF9CJNgNOBwdg/?a=513641&bti=PDk6QC0yM2A%3D&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=14064&bt=7032&cs=0&ft=GAAO2Inz7Th8-GsPXq8Zmo&mime_type=video_mp4&qs=0&rc=OztoZTxpNmVpNTtoN2Q6aEBpajp1cms5cjZzOTYzODU6NEBiMmA1MzQyNi0xXzBiYTAuYSNhcjUuMmRrbC1hLS1kMy1zcw%3D%3D&vvpl=1&l=20260203145704AA2110677D6900973DB2&btag=e000b0000" type="video/mp4">
+            </video>
+        </div>
+        <div class="audio-control">
+            <span>🔊 噜噜的声音</span>
+            <button class="audio-btn" id="audioBtn" onclick="toggleAudio()">▶️</button>
+            <audio id="voiceAudio" src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Feffect%2F05d0ce7a407ace9b1040802d503b1d21_1770101629648_5892.mp3?Expires=1770188029&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=%2F1p8b2ttyur1cQGY%2FidB7JFOBL4%3D"></audio>
+        </div>
+        <div class="voice-text">哇~游泳好开心呀！噗通噗通~水花溅起来啦！噜噜最喜欢夏天游泳啦，凉凉的好舒服~</div>
+        <div class="share-tip">💡 点击播放按钮听噜噜说话 · 长按视频可保存</div>
+        <div class="buttons">
+            <a href="https://v16-cc.capcut.com/48ea677eae7467e3987f0704372a4d5d/698ad6c5/video/tos/alisg/tos-alisg-ve-14178-sg/o8uwIQEDYHfBfiQQnpZB2HbEBEF9CJNgNOBwdg/?a=513641&bti=PDk6QC0yM2A%3D&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=14064&bt=7032&cs=0&ft=GAAO2Inz7Th8-GsPXq8Zmo&mime_type=video_mp4&qs=0&rc=OztoZTxpNmVpNTtoN2Q6aEBpajp1cms5cjZzOTYzODU6NEBiMmA1MzQyNi0xXzBiYTAuYSNhcjUuMmRrbC1hLS1kMy1zcw%3D%3D&vvpl=1&l=20260203145704AA2110677D6900973DB2&btag=e000b0000" download="lulu-游泳.mp4" class="btn btn-primary"><span>⬇️</span> 下载视频</a>
+            <a href="index.html" class="btn btn-secondary"><span>🏠</span> 返回首页</a>
+        </div>
+        <p class="footer">水豚噜噜 · 治愈每一天 💙</p>
+    </div>
+    <script>
+        const audio = document.getElementById('voiceAudio'), audioBtn = document.getElementById('audioBtn');
+        let isPlaying = false;
+        function toggleAudio() {
+            if (isPlaying) { audio.pause(); audioBtn.textContent = '▶️'; audioBtn.classList.remove('playing'); }
+            else { audio.currentTime = 0; audio.play(); audioBtn.textContent = '⏸️'; audioBtn.classList.add('playing'); }
+            isPlaying = !isPlaying;
+        }
+        audio.addEventListener('ended', () => { audioBtn.textContent = '▶️'; audioBtn.classList.remove('playing'); isPlaying = false; });
+        document.getElementById('mainVideo').addEventListener('click', function() { this.paused ? this.play() : this.pause(); });
+    </script>
+</body>
+</html>
