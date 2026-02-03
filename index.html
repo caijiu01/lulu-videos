@@ -5,111 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>水豚噜噜 - 治愈视频集</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             min-height: 100vh;
             background: linear-gradient(135deg, #FFF8E7 0%, #FFE4C4 50%, #FFDAB9 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             padding: 20px;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-        }
-        
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
-        
-        .title {
-            font-size: 2.5rem;
-            color: #8B4513;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #A0522D;
-        }
-        
+        .container { max-width: 900px; margin: 0 auto; text-align: center; }
+        .header { margin-bottom: 40px; }
+        .logo { font-size: 4rem; margin-bottom: 10px; }
+        .title { font-size: 2.5rem; color: #8B4513; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .subtitle { font-size: 1.2rem; color: #A0522D; }
         .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px; margin-top: 30px;
         }
-        
         .video-card {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 40px rgba(139, 69, 19, 0.15);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            background: white; border-radius: 20px; padding: 20px;
+            box-shadow: 0 10px 40px rgba(139, 69, 19, 0.15); transition: all 0.3s ease;
+            text-decoration: none; color: inherit; display: block;
         }
-        
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(139, 69, 19, 0.25);
-        }
-        
-        .card-emoji {
-            font-size: 3rem;
-            margin-bottom: 12px;
-        }
-        
-        .card-title {
-            font-size: 1.3rem;
-            color: #8B4513;
-            margin-bottom: 8px;
-        }
-        
-        .card-desc {
-            font-size: 0.9rem;
-            color: #A0522D;
-            line-height: 1.5;
-        }
-        
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(139, 69, 19, 0.25); }
+        .card-emoji { font-size: 2.5rem; margin-bottom: 12px; }
+        .card-title { font-size: 1.2rem; color: #8B4513; margin-bottom: 8px; }
+        .card-desc { font-size: 0.85rem; color: #A0522D; line-height: 1.5; }
         .card-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #F3A14B, #E98B2A);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            margin-top: 12px;
+            display: inline-block; background: linear-gradient(135deg, #F3A14B, #E98B2A);
+            color: white; padding: 4px 10px; border-radius: 15px; font-size: 0.7rem; margin-top: 12px;
         }
-        
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            color: #A0522D;
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 480px) {
-            .title {
-                font-size: 1.8rem;
-            }
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .footer { margin-top: 50px; padding: 20px; color: #A0522D; font-size: 0.9rem; }
+        @media (max-width: 480px) { .title { font-size: 1.8rem; } .video-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -135,7 +61,33 @@
                 <span class="card-tag">Sora 2 + 配音</span>
             </a>
             
-            <!-- 更多视频会自动添加到这里 -->
+            <a href="shuijiao.html" class="video-card">
+                <div class="card-emoji">😴</div>
+                <h2 class="card-title">睡觉休息中</h2>
+                <p class="card-desc">困了困了...晚安，做个好梦哦~明天又是美好的一天...</p>
+                <span class="card-tag">Sora 2 + 配音</span>
+            </a>
+            
+            <a href="guangjie.html" class="video-card">
+                <div class="card-emoji">🛍️</div>
+                <h2 class="card-title">逛街购物中</h2>
+                <p class="card-desc">哇，这个好可爱！那个也好想要~今天噜噜要买买买！</p>
+                <span class="card-tag">Sora 2 + 配音</span>
+            </a>
+            
+            <a href="chifan.html" class="video-card">
+                <div class="card-emoji">🍜</div>
+                <h2 class="card-title">吃饭美食中</h2>
+                <p class="card-desc">好香好香~今天的饭饭也太好吃了吧！噜噜好幸福呀~</p>
+                <span class="card-tag">Sora 2 + 配音</span>
+            </a>
+            
+            <a href="moyu.html" class="video-card">
+                <div class="card-emoji">🐟</div>
+                <h2 class="card-title">摸鱼划水中</h2>
+                <p class="card-desc">嘘~小声点，噜噜在偷偷休息一下下，别告诉老板哦~</p>
+                <span class="card-tag">Sora 2 + 配音</span>
+            </a>
         </div>
         
         <div class="footer">
