@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水豚噜噜 - 跑步运动中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 50%, #A5D6A7 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 1.8rem;
+            color: #2E7D32;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            color: #388E3C;
+            margin-bottom: 24px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.2);
+            margin-bottom: 16px;
+        }
+        
+        .video-wrapper::before {
+            content: '🏃';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: white;
+            padding: 0 10px;
+            border-radius: 50%;
+        }
+        
+        video {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        .audio-control {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .audio-control span {
+            color: #2E7D32;
+            font-size: 0.9rem;
+        }
+        
+        .audio-btn {
+            background: linear-gradient(135deg, #66BB6A, #43A047);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(102, 187, 106, 0.3);
+        }
+        
+        .audio-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #43A047, #2E7D32);
+        }
+        
+        .voice-text {
+            background: rgba(255,255,255,0.7);
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #2E7D32;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .voice-text::before {
+            content: '"';
+            font-size: 1.5rem;
+            color: #66BB6A;
+        }
+        
+        .voice-text::after {
+            content: '"';
+            font-size: 1.5rem;
+            color: #66BB6A;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #66BB6A, #43A047);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 187, 106, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 187, 106, 0.5);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #2E7D32;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .footer {
+            font-size: 0.85rem;
+            color: #388E3C;
+            opacity: 0.8;
+        }
+        
+        .share-tip {
+            background: rgba(255,255,255,0.7);
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: #2E7D32;
+        }
+        
+        .scene-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #81C784, #4CAF50);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+        
+        .powered-by {
+            font-size: 0.75rem;
+            color: #388E3C;
+            opacity: 0.6;
+            margin-top: 8px;
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.5rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">水豚噜噜</h1>
+        <span class="scene-tag">🏃 跑步运动中</span>
+        <p class="subtitle">运动使噜噜快乐 💚</p>
+        
+        <div class="video-wrapper">
+            <video id="mainVideo" autoplay loop muted playsinline>
+                <source src="https://v3b.fal.media/files/b/0a8cf17e/AV5oOjQu_GoxdlRBozchu_IPxGWrKV.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+        
+        <div class="audio-control">
+            <span>🔊 噜噜的声音</span>
+            <button class="audio-btn" id="audioBtn" onclick="toggleAudio()">▶️</button>
+            <audio id="voiceAudio" src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Feffect%2F05d0a1e7f1e3043f8f0f1ec2e33cceae_1770090217199_3657.mp3?Expires=1770176617&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=%2BmN%2F5dC6ftSnv1xFfI15fTyR6kY%3D"></audio>
+        </div>
+        
+        <div class="voice-text">
+            一二一，一二一~跑起来心情都变好了呢，噜噜最棒啦！
+        </div>
+        
+        <div class="share-tip">
+            💡 点击播放按钮听噜噜说话 · 长按视频可保存
+        </div>
+        
+        <div class="buttons">
+            <a href="https://v3b.fal.media/files/b/0a8cf17e/AV5oOjQu_GoxdlRBozchu_IPxGWrKV.mp4" download="lulu-跑步.mp4" class="btn btn-primary">
+                <span>⬇️</span> 下载视频
+            </a>
+            <button class="btn btn-secondary" onclick="copyLink()">
+                <span>🔗</span> 复制链接
+            </button>
+        </div>
+        
+        <p class="footer">
+            生成时间：2026-02-03<br>
+            水豚噜噜 · 治愈每一天 💚
+        </p>
+        <p class="powered-by">Powered by Sora 2 + Minimax TTS</p>
+    </div>
+    
+    <script>
+        const audio = document.getElementById('voiceAudio');
+        const audioBtn = document.getElementById('audioBtn');
+        const video = document.getElementById('mainVideo');
+        let isPlaying = false;
+        
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                audioBtn.textContent = '▶️';
+                audioBtn.classList.remove('playing');
+            } else {
+                audio.currentTime = 0;
+                audio.play();
+                audioBtn.textContent = '⏸️';
+                audioBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+        
+        audio.addEventListener('ended', function() {
+            audioBtn.textContent = '▶️';
+            audioBtn.classList.remove('playing');
+            isPlaying = false;
+        });
+        
+        video.addEventListener('click', function() {
+            if (this.paused) {
+                this.play();
+            } else {
+                this.pause();
+            }
+        });
+        
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('链接已复制，快去分享给朋友吧！');
+            }).catch(() => {
+                const input = document.createElement('input');
+                input.value = url;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                alert('链接已复制！');
+            });
+        }
+    </script>
+</body>
+</html>

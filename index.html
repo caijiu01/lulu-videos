@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水豚噜噜 - 治愈视频集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4C4 50%, #FFDAB9 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #A0522D;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(139, 69, 19, 0.15);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(139, 69, 19, 0.25);
+        }
+        
+        .card-emoji {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            color: #8B4513;
+            margin-bottom: 8px;
+        }
+        
+        .card-desc {
+            font-size: 0.9rem;
+            color: #A0522D;
+            line-height: 1.5;
+        }
+        
+        .card-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #F3A14B, #E98B2A);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-top: 12px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            color: #A0522D;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🦫</div>
+            <h1 class="title">水豚噜噜</h1>
+            <p class="subtitle">治愈每一天的小视频集 🧡</p>
+        </div>
+        
+        <div class="video-grid">
+            <a href="shangban.html" class="video-card">
+                <div class="card-emoji">💼</div>
+                <h2 class="card-title">上班打工中</h2>
+                <p class="card-desc">又是元气满满的一天呢~虽然有点困，但噜噜会加油的！</p>
+                <span class="card-tag">Sora 2 + 配音</span>
+            </a>
+            
+            <a href="paobu.html" class="video-card">
+                <div class="card-emoji">🏃</div>
+                <h2 class="card-title">跑步运动中</h2>
+                <p class="card-desc">一二一，一二一~跑起来心情都变好了呢，噜噜最棒啦！</p>
+                <span class="card-tag">Sora 2 + 配音</span>
+            </a>
+            
+            <!-- 更多视频会自动添加到这里 -->
+        </div>
+        
+        <div class="footer">
+            <p>水豚噜噜 · 治愈每一天</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">Powered by Sora 2 + Minimax TTS</p>
+        </div>
+    </div>
+</body>
+</html>
